@@ -1,0 +1,124 @@
+#include <stdio.h>
+
+
+int Max(int* pArr, int b); 
+
+int Min(int* pArr, int b); 
+
+void Sorting(int* pArr, int b);
+
+
+int find_Max(int* pArr, int b) 
+
+{ 
+
+int Max = *pArr; 
+
+for (int i = 1; i < b; i++) 
+
+{ 
+
+if (*(pArr + i) > Max) 
+
+{ 
+
+Max = *(pArr + i); 
+
+} 
+
+} 
+
+return Max; 
+
+}
+
+
+int find_Min(int* pArr, int b) 
+
+{ 
+
+int Min = *pArr; 
+
+for (int i = 1; i < b; i++) 
+
+{ 
+
+if (*(pArr + i) < Min) 
+
+{ 
+
+Min = *(pArr + i); 
+
+} 
+
+} 
+
+return Min; 
+
+}
+
+
+void Sorting(int* pArr, int b) 
+
+{ 
+
+int i, j, temp; 
+
+for (i = 0; i < b; i++) 
+
+{ 
+
+for (j = b - 1; j > i; j--) 
+
+{ 
+
+if (pArr[j] > pArr[j - 1]) 
+
+{ 
+
+temp = pArr[j]; 
+
+pArr[j] = pArr[j - 1]; 
+
+pArr[j - 1] = temp; 
+
+} 
+
+} 
+
+} 
+
+return 0; 
+
+} 
+
+int main(void) 
+
+{ 
+
+int b[10] = { 20, 34, 12, 24, 54, 91, 9, 40, 81, 10 }; 
+
+int i; 
+
+Sorting(b, 10);
+
+
+printf("최대값 = %d\n", find_Max(b, 10)); 
+
+printf("최소값 = %d\n", find_Min(b, 10)); 
+
+printf("내림차순 정렬 후 배열 {"); 
+
+for (i = 0; i < 10; i++) 
+
+{ 
+
+printf("%d", b[i]); 
+
+} 
+
+printf("}\n"); 
+
+return 0; 
+
+} 
